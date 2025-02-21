@@ -55,7 +55,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[41.97555829558595,-79.98945190448114],[42.597876546141045,-78.74882815684958]]);
+        }).fitBounds([[42.063911288021934,-79.2892729368203],[42.14192862861548,-79.13419496836612]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -109,7 +109,7 @@
             abstract.show = function () {
                 this._div.classList.remove("abstract");
                 this._div.classList.add("abstractUncollapsed");
-                this._div.innerHTML = 'Narcan® can also be <a href=\'https://forms.ny.gov/s3/Harm-Reduction-Order-Form\'>delivered by mail </a> or even <a href= \'https://www.mhachautauqua.org/naloxone\'>delivered to you by MHA.</a>';
+                this._div.innerHTML = 'Narcan® can also be <a href=\'https://forms.ny.gov/s3/Harm-Reduction-Order-Form\'>delivered by mail </a> or even <a href= \'https://www.mhachautauqua.org/naloxone\'>delivered to you by MHA.</a>  All Narcan® listed here is free of charge.';
         };
         abstract.addTo(map);
         var zoomControl = L.control.zoom({
@@ -155,12 +155,12 @@
                         <td>' + (feature.properties['Facility name'] !== null ? autolinker.link(String(feature.properties['Facility name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Type of access</th>\
-                        <td>' + (feature.properties['Type of access'] !== null ? autolinker.link(String(feature.properties['Type of access']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <th scope="row">Location</th>\
                         <td>' + (feature.properties['Location'] !== null ? autolinker.link(String(feature.properties['Location']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Placement</th>\
+                        <td>' + (feature.properties['Placement'] !== null ? autolinker.link(String(feature.properties['Placement']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Hours</th>\
@@ -173,6 +173,10 @@
                     <tr>\
                         <th scope="row">Town</th>\
                         <td>' + (feature.properties['Town'] !== null ? autolinker.link(String(feature.properties['Town']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">State</th>\
+                        <td>' + (feature.properties['State'] !== null ? autolinker.link(String(feature.properties['State']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Notes</th>\
