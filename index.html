@@ -94,7 +94,7 @@
             return this._div;
         };
         title.update = function () {
-            this._div.innerHTML = '<h2>Click on the Narcan® symbols for more information</h2>';
+            this._div.innerHTML = '<h2>Click on the Narcan® symbols for more information &nbsp&nbsp<img src="markers/favicon-32x32.png" alt="Narcan symbol"></h2>';
         };
         title.addTo(map);
         var abstract = new L.Control({'position':'topleft'});
@@ -157,7 +157,7 @@
                         <td colspan="2">' + (feature.properties['Address'] !== null ? autolinker.link(String(feature.properties['Address']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Location'] !== null ? autolinker.link(String(feature.properties['Location']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><b>' + (feature.properties['Location'] !== null ? autolinker.link(String(feature.properties['Location']).replace(/'/g, '\'').toLocaleString()) : '') + '</b></td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Availability'] !== null ? autolinker.link(String(feature.properties['Availability']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
