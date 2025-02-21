@@ -151,7 +151,7 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Facility name'] !== null ? autolinker.link(String(feature.properties['Facility name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td colspan="2"><u>' + (feature.properties['Facility name'] !== null ? autolinker.link(String(feature.properties['Facility name']).replace(/'/g, '\'').toLocaleString()) : '') + '</u></td>\
                     </tr>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Address'] !== null ? autolinker.link(String(feature.properties['Address']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
