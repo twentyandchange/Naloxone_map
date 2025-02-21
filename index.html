@@ -55,7 +55,7 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[41.97095471656808,-79.97423027110962],[42.59331821900503,-78.73360652347806]]);
+        }).fitBounds([[42.076548837022024,-79.26480353468772],[42.11556173641116,-79.18726455046095]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -109,7 +109,7 @@
             abstract.show = function () {
                 this._div.classList.remove("abstract");
                 this._div.classList.add("abstractUncollapsed");
-                this._div.innerHTML = 'Narcan® can also be <a href=\'https://forms.ny.gov/s3/Harm-Reduction-Order-Form\'>ordered by mail.</a>. ';
+                this._div.innerHTML = 'Narcan® can also be <a href=\'https://forms.ny.gov/s3/Harm-Reduction-Order-Form\'>delivered by mail </a> or even <a href= \'https://www.mhachautauqua.org/naloxone\'>brought to you by MHA.</a>';
         };
         abstract.addTo(map);
         var zoomControl = L.control.zoom({
