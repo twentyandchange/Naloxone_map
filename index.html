@@ -21,7 +21,7 @@
  /* Styles for the floating image */
         .floating-image {
             position: absolute; /* Or fixed if you want it to stay in place during scroll */
-            bottom: 20px; /* Adjust as needed */
+            top: 175px; /* Adjust as needed */
             left: 20px; /* Adjust as needed */
             z-index: 1000; /* Ensure it's above other map elements */
             /* Add any other styling you want (e.g., width, height, border, etc.) */
@@ -131,9 +131,11 @@ this._div.innerHTML = '<h2>Click on the Narcan® symbols &nbsp<img src="markers/
                 this._div.innerHTML = 'Narcan® can also be <a href=\'https://forms.ny.gov/s3/Harm-Reduction-Order-Form\'>delivered by mail </a> or even <a href= \'https://www.mhachautauqua.org/naloxone\'>delivered to you by MHA.</a>  All Narcan® listed here is free of charge.';
         };
         abstract.addTo(map);
-        var zoomControl = L.control.zoom({
-            position: 'topleft'
-        }).addTo(map);
+/*
+var zoomControl = L.control.zoom({
+    position: 'topleft'
+}).addTo(map);
+*/
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
@@ -466,18 +468,8 @@ this._div.innerHTML = '<h2>Click on the Narcan® symbols &nbsp<img src="markers/
                 return L.marker(latlng, style_Naloxboxlocations_4_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Naloxboxlocations_4);
+  bounds_group.addLayer(layer_Naloxboxlocations_4);
         map.addLayer(layer_Naloxboxlocations_4);
-        var osmGeocoder = new L.Control.Geocoder({
-            collapsed: true,
-            position: 'topleft',
-            text: 'Search',
-            title: 'Testing'
-        }).addTo(map);
-        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
-        .className += ' fa fa-search';
-        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
-        .title += 'Search for a place';
         setBounds();
         </script>
     </body>
