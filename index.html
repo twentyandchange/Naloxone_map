@@ -18,27 +18,28 @@
             padding: 0;
             margin: 0;
         }
-        #image-container {
-            position: absolute;
-            top: 50px; /* Adjust top spacing as needed */
-            right: 10px; /* Adjust right spacing as needed */
-            z-index: 500; /* Ensure it's above other map elements */
+ /* Styles for the floating image */
+        .floating-image {
+            position: absolute; /* Or fixed if you want it to stay in place during scroll */
+            bottom: 20px; /* Adjust as needed */
+            left: 20px; /* Adjust as needed */
+            z-index: 1000; /* Ensure it's above other map elements */
+            /* Add any other styling you want (e.g., width, height, border, etc.) */
+            width: 100px; /* Example width */
+            height: auto; /* Maintain aspect ratio */
         }
-
-        #image-container img {
-            max-width: 100px; /* Adjust max width as needed */
-            height: auto;
+        .floating-image img {
+          max-width: 100%;
+          height: auto;
         }
         </style>
-        <title>Click on the Narcan® symbols for more information</title>
+        <title>Find Narcan® in Chautauqua County</title>
     </head>
     <body>
         <div id="map">
         </div>
-#NOTE CHANGE HERE
-    <div id="image-container">
-        <img src="markers/CombatAddictionCHQ-logo.png" alt="CombatAddictionCHQ">
-    </div>
+    <div class="floating-image">
+        <img src="markers/CombatAddictionCHQ-logo.png" alt="CombatAddictionCHQ">  </div>
         <script src="js/qgis2web_expressions.js"></script>
         <script src="js/leaflet.js"></script>
         <script src="js/L.Control.Layers.Tree.min.js"></script>
