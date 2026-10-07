@@ -58,9 +58,9 @@
         }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[41.78225029622156,-80.32068351008803],[42.7880007266718,-78.51132754528324]]);
+        }).fitBounds([[41.96287433007058,-80.00389813614721],[42.63923273059408,-78.85945727752421]]);
         var hash = new L.Hash(map);
-        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        map.attributionControl.setPrefix('<a href="https://github.com/qgis2web/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         // remove popup's row if "visible-with-data"
         function removeEmptyRowsFromPopupContent(content, feature) {
@@ -85,9 +85,20 @@
                 var src = imgTd.getAttribute('src');
                 if (/\.(jpg|jpeg|png|gif|bmp|webp|avif)$/i.test(src)) {
                     popup._contentNode.classList.add('media');
-                    setTimeout(function() {
-                        popup.update();
-                    }, 10);
+                    var img = popup._contentNode.querySelector('td img');
+                    if (img) {
+                        // If already loaded (cache), update immediately
+                        if (img.complete && img.naturalHeight > 0) {
+                            popup.update();
+                        } else {
+                            img.addEventListener('load', function() {
+                                popup.update();
+                            });
+                            img.addEventListener('error', function() {
+                                popup.update();
+                            });
+                        }
+                    }
                 } else if (/\.(mp3|wav|ogg|aac)$/i.test(src)) {
                     var audio = document.createElement('audio');
                     audio.controls = true;
@@ -154,19 +165,19 @@
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
-        map.createPane('pane_Positronretina_0');
-        map.getPane('pane_Positronretina_0').style.zIndex = 400;
-        var layer_Positronretina_0 = L.tileLayer('https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png', {
-            pane: 'pane_Positronretina_0',
-            opacity: 1.0,
-            attribution: '<a href="https://cartodb.com/basemaps/">Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</a>',
+        map.createPane('pane_WazeUS_0');
+        map.getPane('pane_WazeUS_0').style.zIndex = 400;
+        var layer_WazeUS_0 = L.tileLayer('https://livemap-tiles3.waze.com/tiles/{z}/{x}/{y}.png', {
+            pane: 'pane_WazeUS_0',
+            opacity: 0.659,
+            attribution: '',
             minZoom: 1,
             maxZoom: 28,
             minNativeZoom: 0,
             maxNativeZoom: 20
         });
-        layer_Positronretina_0;
-        map.addLayer(layer_Positronretina_0);
+        layer_WazeUS_0;
+        map.addLayer(layer_WazeUS_0);
         function pop_ChautauquaCountyoutline_1(feature, layer) {
             layer.on({
                 mouseout: function(e) {
